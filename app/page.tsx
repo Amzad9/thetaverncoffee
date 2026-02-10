@@ -397,10 +397,15 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="">
-            <div className="relative rounded-4xl bg-linear-to-br from-[#fff7f1] via-white to-[#ffe3c2] py-8 ">
-                <div className="absolute inset-x-6 bottom-4  rounded-4xl bg-linear-to-b from-[#f5c27a]/3 via-[#e79d57]/0 to-[#d27b37]/7" />
-                <img src="/ph2.png" alt="Woman with Coffee" className="max-w-full h-[500px] rounded-3xl block mx-auto" />
+            <div className="relative flex items-center justify-center">
+              <div className="relative w-full overflow-hidden rounded-[2.25rem] bg-linear-to-br from-[#fff7f1] via-white to-[#ffe3c2] px-4 pb-8 pt-9">
+                <div className="relative">
+                  <img
+                    src="/ph2.png"
+                    alt="Woman with Coffee"
+                    className="relative z-10 mx-auto block h-[460px] max-w-full rounded-3xl object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -408,22 +413,41 @@ export default function Home() {
 
         {/* The Drip / blog preview */}
         <section className="mt-20 rounded-3xl bg-[#6f4a52] px-6 py-10 text-amber-50 shadow-xl sm:px-8 md:mt-24">
+          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-200">
+                The Drip · From our blog
+              </p>
+              <h2 className="mt-2 font-serif text-3xl font-semibold leading-tight">
+                Fresh pours, stories, and coffee thoughts.
+              </h2>
+            </div>
+            <a
+              href="#"
+              className="mt-3 inline-flex items-center justify-center self-start rounded-full border border-amber-100/80 px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-amber-50 transition hover:-translate-y-0.5 hover:bg-amber-50 hover:text-[#5b3941]"
+            >
+              View All Posts →
+            </a>
+          </div>
+
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
                 title: "The Simple Joy of Coffee: More Than Just a Drink",
                 category: "The Drip",
                 body: "For many of us, coffee is more than a beverage—it’s a ritual, a comfort, and sometimes the spark that gets our day moving.",
+                readTime: "3 min read",
               },
               {
                 title: "Why Morning People Have It Made (and How to Fake It…)",
                 category: "The Drip",
                 body: "Ever wonder what your coffee choice says about your vibe? From bold cold brew to cozy cappuccino, your order might be spilling your secrets.",
+                readTime: "4 min read",
               },
             ].map((post) => (
               <article
                 key={post.title}
-                className="flex flex-col justify-between rounded-2xl bg-[#5b3941] p-6 shadow-lg"
+                className="group flex flex-col justify-between rounded-2xl border border-amber-200/15 bg-gradient-to-br from-[#5b3941] via-[#5b3941] to-[#7a525a] p-6 shadow-lg shadow-black/40 transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="space-y-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
@@ -432,11 +456,16 @@ export default function Home() {
                   <h3 className="font-serif text-xl font-semibold leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-amber-100/90">{post.body}</p>
+                  <p className="text-sm text-amber-100/90">
+                    {post.body}
+                  </p>
+                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.25em] text-amber-200/80">
+                    {post.readTime}
+                  </p>
                 </div>
                 <a
                   href="#"
-                  className="mt-5 inline-flex items-center justify-center rounded-full border border-amber-100 px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-amber-50 transition hover:-translate-y-0.5 hover:bg-amber-50 hover:text-[#5b3941]"
+                  className="mt-5 inline-flex items-center justify-center rounded-full border border-amber-100 px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-amber-50 transition group-hover:-translate-y-0.5 group-hover:bg-amber-50 group-hover:text-[#5b3941]"
                 >
                   Read More →
                 </a>
